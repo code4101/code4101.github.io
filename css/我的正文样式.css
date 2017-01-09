@@ -1,0 +1,31 @@
+body {
+    counter-reset: 节计数器;
+}
+
+h1 {
+    counter-reset: 小节计数器;
+    color: rgb(95,73,122);   /*紫罗兰色*/;
+}
+
+h1:before {
+    counter-increment: 节计数器;
+    content: "第" counter(节计数器) "节 ";
+}
+
+h1:after {
+    content: <img src="C:\Users\chen\Desktop\html\img\1.png"/>;
+}
+
+h2 {
+    color: rgb(0,0,255);  /*蓝色*/;
+}
+
+h2:before {
+    counter-increment: 小节计数器;
+    content: counter(节计数器) "." counter(小节计数器) " ";
+}
+
+p:before {
+    content: "　　";     /*放个特殊的字符，作为首行缩进*/
+    text-align: justify; /*对齐方式：两端对齐*/;
+}

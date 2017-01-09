@@ -1,0 +1,35 @@
+Sub 跳到上一个不同值()
+    Dim myCell As Object
+    Dim maxn As Long
+    
+    maxn = ActiveSheet.UsedRange.Rows.Count '这里可以设置最大跳跃幅度
+    
+    Set myCell = ActiveCell
+    
+    On Error GoTo finish    '单元格类型不同时会有意外情况
+    '跳过隐藏行或者值相同的行
+    Do While Rows(myCell.Row).Hidden Or myCell = ActiveCell
+        Set myCell = myCell.Offset(-1, 0)
+    Loop
+finish:
+    myCell.Activate
+End Sub
+
+Sub 跳到下一个不同值()
+    Dim myCell As Object
+    Dim maxn As Long
+    
+    maxn = ActiveSheet.UsedRange.Rows.Count '这里可以设置最大跳跃幅度
+    
+    Set myCell = ActiveCell
+    
+    On Error GoTo finish    '单元格类型不同时会有意外情况
+    '跳过隐藏行或者值相同的行
+    Do While (Rows(myCell.Row).Hidden Or myCell = ActiveCell) And myCell.Row < maxn
+        Set myCell = myCell.Offset(1, 0)
+    Loop
+finish:
+    myCell.Activate
+End Sub
+
+
