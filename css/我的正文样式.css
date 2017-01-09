@@ -12,10 +12,6 @@ h1:before {
     content: "第" counter(节计数器) "节 ";
 }
 
-h1:after {
-    content: <img src="C:\Users\chen\Desktop\html\img\1.png"/>;
-}
-
 h2 {
     color: rgb(0,0,255);  /*蓝色*/;
 }

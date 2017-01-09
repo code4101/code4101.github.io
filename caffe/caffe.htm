@@ -1,0 +1,1071 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>caffe配置</title>
+<link rel=Stylesheet type="text/css" media=all href="../css/word文档的修正.css">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"微软雅黑 Light";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"\@微软雅黑 Light";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:微软雅黑;
+	panose-1:2 11 5 3 2 2 4 2 2 4;}
+@font-face
+	{font-family:"\@微软雅黑";
+	panose-1:2 11 5 3 2 2 4 2 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:宋体;}
+h1
+	{mso-style-link:"标题 1 Char";
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:16.0pt;
+	font-family:"Calibri",sans-serif;
+	color:#1E4E79;
+	font-weight:normal;}
+h2
+	{mso-style-link:"标题 2 Char";
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:14.0pt;
+	font-family:"Calibri",sans-serif;
+	color:#2E75B5;
+	font-weight:normal;}
+h3
+	{mso-style-link:"标题 3 Char";
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;
+	color:#5B9BD5;
+	font-weight:normal;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:宋体;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:21.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:宋体;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:42.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:宋体;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"页眉 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	layout-grid-mode:char;
+	border:none;
+	padding:0cm;
+	font-size:9.0pt;
+	font-family:宋体;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"页脚 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	layout-grid-mode:char;
+	font-size:9.0pt;
+	font-family:宋体;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:宋体;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-indent:21.0pt;
+	font-size:12.0pt;
+	font-family:宋体;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-right:0cm;
+	margin-left:0cm;
+	line-height:105%;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"Calibri Light",sans-serif;
+	color:#2E74B5;}
+span.1Char
+	{mso-style-name:"标题 1 Char";
+	mso-style-link:"标题 1";
+	font-family:"Calibri",sans-serif;
+	color:#1E4E79;}
+span.2Char
+	{mso-style-name:"标题 2 Char";
+	mso-style-link:"标题 2";
+	font-family:"Calibri",sans-serif;
+	color:#2E75B5;}
+span.3Char
+	{mso-style-name:"标题 3 Char";
+	mso-style-link:"标题 3";
+	font-family:"Calibri",sans-serif;
+	color:#5B9BD5;}
+span.Char
+	{mso-style-name:"页眉 Char";
+	mso-style-link:页眉;
+	font-family:宋体;}
+span.Char0
+	{mso-style-name:"页脚 Char";
+	mso-style-link:页脚;
+	font-family:宋体;}
+.MsoChpDefault
+	{font-size:10.0pt;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+style='font-size:20.0pt;font-family:"微软雅黑",sans-serif;color:black'>配置与测试</span><span
+lang=EN-US style='font-size:20.0pt;font-family:"微软雅黑",sans-serif;color:black'>MNIST</span><span
+style='font-size:20.0pt;font-family:"微软雅黑",sans-serif;color:black'>样例</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+lang=EN-US style='font-size:9.0pt;font-family:"微软雅黑",sans-serif;color:gray'>2016</span><span
+style='font-size:9.0pt;font-family:"微软雅黑",sans-serif;color:gray'>年</span><span
+lang=EN-US style='font-size:9.0pt;font-family:"微软雅黑",sans-serif;color:gray'>10</span><span
+style='font-size:9.0pt;font-family:"微软雅黑",sans-serif;color:gray'>月</span><span
+lang=EN-US style='font-size:9.0pt;font-family:"微软雅黑",sans-serif;color:gray'>30</span><span
+style='font-size:9.0pt;font-family:"微软雅黑",sans-serif;color:gray'>日</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+lang=EN-US style='font-size:9.0pt;font-family:"微软雅黑",sans-serif;color:gray'>09:40</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>&nbsp;</span></p>
+
+<p class=MsoTocHeading style='word-break:break-all'><span style='font-family:
+"微软雅黑",sans-serif'>目录</span></p>
+
+<p class=MsoToc1 style='word-break:break-all'><span class=MsoHyperlink><span lang=EN-US><a href="#_Toc471773565"><span style='font-family:"微软雅黑",sans-serif'>0
+</span><span lang=EN-US style='font-family:"微软雅黑",sans-serif'><span lang=EN-US>说明</span></span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></span></p>
+
+<p class=MsoToc1 style='word-break:break-all'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc471773566"><span style='font-family:"微软雅黑",sans-serif'>1
+</span><span lang=EN-US style='font-family:"微软雅黑",sans-serif'><span lang=EN-US>主要配置流程</span></span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></span></p>
+
+<p class=MsoToc2 style='margin-left:24.0pt;word-break:break-all'><span
+class=MsoHyperlink><span lang=EN-US><a href="#_Toc471773567"><span
+style='font-family:"微软雅黑",sans-serif'>1.1 </span><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'><span lang=EN-US>基本安装</span></span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></span></p>
+
+<p class=MsoToc2 style='margin-left:24.0pt;word-break:break-all'><span
+class=MsoHyperlink><span lang=EN-US><a href="#_Toc471773568"><span
+style='font-family:"微软雅黑",sans-serif'>1.2 CUDA</span><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'><span lang=EN-US>、cuDNN</span></span><span
+lang=EN-US style='font-family:"微软雅黑",sans-serif'><span lang=EN-US>加速</span></span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></span></p>
+
+<p class=MsoToc2 style='margin-left:24.0pt;word-break:break-all'><span
+class=MsoHyperlink><span lang=EN-US><a href="#_Toc471773569"><span
+style='font-family:"微软雅黑",sans-serif'>1.3 </span><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'><span lang=EN-US>附加说明</span></span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></span></p>
+
+<p class=MsoToc3 style='margin-left:48.0pt;word-break:break-all'><span
+class=MsoHyperlink><span lang=EN-US><a href="#_Toc471773570"><span
+style='font-family:"微软雅黑",sans-serif'>VS</span><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'><span lang=EN-US>的弹窗如何选择</span></span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></span></p>
+
+<p class=MsoToc3 style='margin-left:48.0pt;word-break:break-all'><span
+class=MsoHyperlink><span lang=EN-US><a href="#_Toc471773571"><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'><span lang=EN-US>一个文件编码问题</span></span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></span></p>
+
+<p class=MsoToc1 style='word-break:break-all'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc471773572"><span style='font-family:"微软雅黑",sans-serif'>2
+</span><span lang=EN-US style='font-family:"微软雅黑",sans-serif'><span lang=EN-US>原理与细节展开</span></span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></span></p>
+
+<p class=MsoToc1 style='word-break:break-all'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc471773573"><span style='font-family:"微软雅黑",sans-serif'>Reference</span><span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></span></p>
+
+<p class=MsoNormal style='word-break:break-all'><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'>&nbsp;</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>作者：</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>code4101</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>&nbsp;</span></p>
+
+<h1 style='word-break:break-all'><a name="_Toc471773565"><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'>0 </span></a><span style='font-family:
+"微软雅黑",sans-serif'>说明</span></h1>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>本文将在第</span><span lang=EN-US style='font-size:10.5pt;font-family:
+"微软雅黑",sans-serif;color:black'>1</span><span style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>节“主要配置流程”用最精简的语言、操作让各位配好</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>caffe</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>深度学习框架（</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>windows</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>版，带</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>CUDA8.0+cuDNN5</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>加速），并测试</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>MNIST</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>样例。（</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>MNIST</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>：是一个手写体数字数据库，含</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>6w</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>个训练样本，</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>1w</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>个验证样本。）</span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>第<span lang=EN-US>2</span>节“原理与细节展开”会对第<span lang=EN-US>1</span>步中各个流程涉及的原理和细节进行展开。</span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>文中的超链接优先指向官网等相对于百度云更稳定的网络链接位置。文中提到的大部分附件，在</span><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'><a href="http://pan.baidu.com/s/1kUJ5lUR"><span
+lang=EN-US style='font-size:10.5pt'><span lang=EN-US>笔者的百度云</span></span></a></span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>都能找到。部分文件在我移动硬盘的“<span
+lang=EN-US>PatterRecognize</span>目录”也有备份。</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:27.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'>&nbsp;</span></p>
+
+<h1 style='word-break:break-all'><a name="_Toc471773566"><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'>1 </span></a><span style='font-family:
+"微软雅黑",sans-serif'>主要配置流程</span></h1>
+
+<h2 style='word-break:break-all'><a name="_Toc471773567"><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'>1.1 </span></a><span style='font-family:
+"微软雅黑",sans-serif'>基本安装</span></h2>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>安装</span><span lang=EN-US style='font-family:"微软雅黑",sans-serif'><a
+href="http://download.microsoft.com/download/0/7/5/0755898A-ED1B-4E11-BC04-6B9B7D82B1E4/VS2013_RTM_ULT_CHS.iso"><span
+style='font-size:10.5pt'>VS2013 Ultimate</span></a></span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>：<span
+lang=EN-US>VS2013_RTM_ULT_CHS.iso</span>（<span lang=EN-US>3G</span>）。</span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>下载解压</span><span lang=EN-US style='font-family:"微软雅黑",sans-serif'><a
+href="http://pan.baidu.com/s/1kUJ5lUR"><span style='font-size:10.5pt'>caffe.rar</span></a></span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>（<span
+lang=EN-US>20M</span>），用<span lang=EN-US>VS2013</span>或更高版本的<span lang=EN-US>VS</span>打开<span
+lang=EN-US>&quot;caffe\windows\Caffe.sln&quot;</span>。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>弹出来的窗口不会点的，看这里：</span><span lang=EN-US style='font-family:"微软雅黑",sans-serif'><a
+href="onenote:#配置与测试MNIST样例&amp;section-id={98274DC6-339A-4982-97B6-4D5CFC1B3B89}&amp;page-id={76A225C2-BDDA-495A-8E5A-A772BAA36845}&amp;object-id={E134B382-2DBA-0532-17BC-2478D0DF3733}&amp;A4&amp;base-path=https://d.docs.live.net/90d74e5d49fceb8c/文档/共享/陈坤泽/TextII.one"><span
+style='font-size:10.5pt'>VS</span><span lang=EN-US style='font-size:10.5pt'><span
+lang=EN-US>的弹窗如何选择</span></span></a></span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>我已经预先设置好相关配置，只需<b><span lang=EN-US>Debug</span></b>切换到<b><span
+lang=EN-US>Release</span></b>，按<span lang=EN-US>Ctrl+F5</span>编译运行。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>c.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>初次编译要下载相关的依赖库，加上编译，要稍微等一会。笔者一共等了<span lang=EN-US>2</span>分钟<span
+lang=EN-US>~</span></span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>d.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>附：可能会遇到 </span><span lang=EN-US style='font-family:"微软雅黑",sans-serif'><a
+href="onenote:#配置与测试MNIST样例&amp;section-id={98274DC6-339A-4982-97B6-4D5CFC1B3B89}&amp;page-id={76A225C2-BDDA-495A-8E5A-A772BAA36845}&amp;object-id={E134B382-2DBA-0532-17BC-2478D0DF3733}&amp;B7&amp;base-path=https://d.docs.live.net/90d74e5d49fceb8c/文档/共享/陈坤泽/TextII.one"><span
+lang=EN-US style='font-size:10.5pt'><span lang=EN-US>一个文件编码问题</span></span></a></span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>，转成<span
+lang=EN-US>UTF8</span>带标签即可。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>e.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>运行大约需要<span lang=EN-US>400</span>秒，在<span lang=EN-US>&quot;examples\mnist&quot;</span>多出<span
+lang=EN-US>&quot;xxx.caffemodel</span>、<span lang=EN-US>xxx.solverstate&quot;</span>共<span
+lang=EN-US>4</span>个文件。</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:27.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'>&nbsp;</span></p>
+
+<h2 style='word-break:break-all'><a name="_Toc471773568"><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'>1.2 CUDA</span></a><span
+style='font-family:"微软雅黑",sans-serif'>、<span lang=EN-US>cuDNN</span>加速</span></h2>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>上面是仅用<span lang=EN-US>CPU</span>运行的速度，对于有<span lang=EN-US>GTX980Ti</span>显卡的我们，可以使用<span
+lang=EN-US>GPU</span>来加快模型训练速度。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>下载安装</span><span lang=EN-US style='font-family:"微软雅黑",sans-serif'><a
+href="https://developer.nvidia.com/cuda-downloads"><span style='font-size:10.5pt'>CUDA8.0</span></a></span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>：<span
+lang=EN-US>cuda_8.0.44_win10.exe</span>（<span lang=EN-US>1.2G</span>）。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>修改<span lang=EN-US>props</span>文件：<span lang=EN-US>CpuOnlyBuild</span>改为<span
+lang=EN-US>false</span></span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:54.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'><img border=0 width=576
+height=153 id="图片 1" src="caffe.files/image001.jpg"
+alt="mmonSettings.props -E &#10;(16 &#10;pro &#10;.S' CommonSettings.pro &#10;scripts &#10;BinplaceCudaDependencies.cmd &#10;2 &#10;4 &#10;71 &#10;ü&lt;Project xmlns=&quot;http: &#10;&lt; ImportGroup ' &#10;(PropertyGroup &#10;TE: CouOn1v3ui1d and UseCuDNN &#10;«puOn1yBu lid falsee "></span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:54.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>将</span><span lang=EN-US
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>&quot;examples\mnist\lenet_solver.prototxt&quot;</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>solver_mode</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>改为</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>GPU</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>。</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:54.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'><img border=0 width=332
+height=124 id="图片 2" src="caffe.files/image002.jpg"
+alt="21 &#10;24 &#10;snapsrnzt intermediate results &#10;snapshot: 5000 &#10;snapshot_pref i x: &#10;&quot; examples / Lenet &quot; &#10;solver rode: CPU GPO &#10;solver rode: GPO "></span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>c.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>重新编译运行，这次时间大约是<span lang=EN-US>190</span>秒，速度快了<span lang=EN-US>1</span>倍。好像也没怎么样嘛，哈，其实重头戏在下面。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>d.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>出错处理</span></p>
+
+<p class=MsoNormal style='margin-left:80.8pt;text-indent:-80.8pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>i.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>编译中如果报了“<span
+lang=EN-US>error MSB4062</span>”错误，则需要安装</span><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'><a
+href="http://rj.baidu.com/soft/detail/23411.html?ald"><span style='font-size:
+10.5pt'>Microsoft .NET Framework 3.5</span></a></span><span style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'>：<span lang=EN-US>dotnetfx35.2792382908.exe</span>（<span
+lang=EN-US>231M</span>）。这个安装超级慢，做好心理准备，反正我是挂了一个晚上让它安装，第<span lang=EN-US>2</span>天睡醒后就好了<span
+lang=EN-US>~,(</span>开着<span lang=EN-US>VPN</span>几分钟就装好了<span lang=EN-US>,</span>不懂为什么<span
+lang=EN-US>)</span></span></p>
+
+<p class=MsoNormal style='margin-left:81.0pt;text-indent:-81.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>ii.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>重启<span
+lang=EN-US>VS</span>。（质疑：<span lang=EN-US>MSB4062</span>错误一定要装<span lang=EN-US>.NET
+3.5</span>？清理重启下<span lang=EN-US>VS</span>是不是就可以了？）（<span lang=EN-US>MSB4062</span>错误一定要装<span
+lang=EN-US>.NET 3.5</span>，然后要重启下<span lang=EN-US>VS</span>）</span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>NVIDIA</span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>提供了面向深度学习的专用加速库<span lang=EN-US>cuDNN</span>。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>下载解压</span><span lang=EN-US style='font-family:"微软雅黑",sans-serif'><a
+href="https://developer.nvidia.com/cudnn"><span style='font-size:10.5pt'>cuDNN
+v5</span></a></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>：<span lang=EN-US>cudnn-8.0-windows10-x64-v5.0-ga.zip</span>（<span
+lang=EN-US>51M</span>）。</span></p>
+
+<p class=MsoNormal style='margin-left:81.0pt;text-indent:-81.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>i.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>建议解压到“<span lang=EN-US>caffe\windows\packages</span>”目录。如果不在该目录，要修改<span
+lang=EN-US>props</span>：</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:81.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'><img border=0 width=576
+height=112 id="图片 3" src="caffe.files/image003.jpg"
+alt="19 &#10;2€ &#10;21 &#10;22 &#10;23 &#10;24 &#10;Set CUDA architecture suitable for your GPI]. &#10;Setting proper architecture is important to mimize your run and compile ti &#10;&lt;CudaArchitecture &gt; compute_52, sm_52&lt;/CudaArchitecture&gt; &#10;CuDNN 4 and 5 are supported - &#10;&lt;CuDnnPath &#10;&lt; scrip s&lt; crlp s &#10;DnnPath&gt; "></span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>修改<span lang=EN-US>props</span>；以及<span lang=EN-US>caffe</span>项目运行时使用的命令行指令：末尾增加<span
+lang=EN-US>&quot;-gpu 0&quot;</span></span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:54.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'><img border=0 width=729
+height=387 id="图片 4" src="caffe.files/image004.jpg"
+alt="x &#10;CommonSetti ngs.props &#10;(PropertyGroup &quot; &gt; &#10;4 &#10;(16 &#10;props &#10;CommonSetti ng s. pro &#10;scripts &#10;caffe (V:sual Studio 2013) &#10;caffe &#10;Release &#10;eneral &#10;6 &#10;9 &#10;11 &#10;12 &#10;&lt; ! --NOTE: CpuOn1y8ui1d and UseCuDNN flags can' &#10;&lt;CpuOn1y8ui1d&gt;fa1se&lt;/CpuOn1y8ui1d&gt; &#10;—zijÅE'Ciå:jiC(@éée:/UseCu DN N &gt; &#10;&lt;CudaVersion &gt;8. &#10;NOTE: If Python support is enabled, Pythc &#10;set to the root of your Python installati &#10;does not contain debug libraries, debug &#10;3J(x64) &#10;Local Windows Debugger &#10;roject Master Settings &#10;renced Packages &#10;Command &#10;Command Arguments &#10;S (Ta rgetP &#10;train &#10;pu O "></span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:54.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>（<span lang=EN-US>161215</span>星期四<span
+lang=EN-US> 16:53</span>后记：不用加</span><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>-gpu 0</span><span style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'>，这个是调用第几个</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>gpu</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>，默认本来就会调</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>gpu</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>，然后自然就用</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>cudnn</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>了。）</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>c.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>运行大约只用<span lang=EN-US>30</span>秒，速度可是数量级的提升啊！</span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>这里提供配置好的</span><span lang=EN-US style='font-family:"微软雅黑",sans-serif'><a
+href="http://pan.baidu.com/s/1kUJ5lUR"><span style='font-size:10.5pt'>caffe+CUDA8.0+cuDNN5</span></a></span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>：<span
+lang=EN-US>caffe+cudnn.rar</span>（<span lang=EN-US>60M</span>）</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:27.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'>&nbsp;</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>&nbsp;</span></p>
+
+<h2 style='word-break:break-all'><a name="_Toc471773569"><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'>1.3 </span></a><span style='font-family:
+"微软雅黑",sans-serif'>附加说明</span></h2>
+
+<h3 style='word-break:break-all'><a name="_Toc471773570"><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'>VS</span></a><span style='font-family:
+"微软雅黑",sans-serif'>的弹窗如何选择</span></h3>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>弹窗<span lang=EN-US>1</span>：把“勾”去掉，点“是”：</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:27.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'><img border=0 width=430
+height=165 id="图片 5" src="caffe.files/image005.jpg"
+alt="后 &amp; 計 的 安 全 舌 &#10;0 只 打 开 宗 巨 可 信 源 的 项 目 ． &#10;项 目 文 仁 《 i &amp; 計 fe 可 宗 巨 不 完 全 壹 信 任 的 位 。 FMicrosoftVisual St 凵 di 。 中 打 开 i 玄 文 仁 时 &#10;巨 定 生 成 步 而 帝 宗 安 全 风 ， 卉 可 能 导 致 计 巨 相 损 坏 亚 危 及 您 私 有 信 思 ． &#10;否 打 开 此 项 目 ？ &#10;0 &#10;可 琵 因 力 执 行 &#10;中 的 每 一 个 顼 巨 都 河 河 我 } &#10;0 "></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>弹窗<span lang=EN-US>2</span>：如果是用<span lang=EN-US>VS2015</span>打开，别升级，点“取消”：</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:27.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'><img border=0 width=390
+height=231 id="图片 6" src="caffe.files/image006.jpg"
+alt="Visual C++ Microsoft &#10;Visual studio C++/CLI &#10;.NET Framework 4.52. , Visual &#10;studio &#10;bca ffe\ i bca ffe.vcxp roj &#10;Aca ffe\ca ffe .vcx p roj &#10;mean\compute_image mean.vcxproJ &#10;„\co nve rt_i ma g eset\co nve rt_i ma g eset.vcxp roj "></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>&nbsp;</span></p>
+
+<h3 style='word-break:break-all'><a name="_Toc471773571"><span
+style='font-family:"微软雅黑",sans-serif'>一个文件编码问题</span></a></h3>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>问题形式：</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:27.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'><img border=0 width=526
+height=90 id="图片 7" src="caffe.files/image007.jpg"
+alt="C2220 &#10;- functions.cpp) "></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>解决方式：</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>双击<span lang=EN-US>C2220</span>的说明，会打开<span lang=EN-US>&quot;alt_sstream_impl.hpp&quot;</span>文件，按“<span
+lang=EN-US>alt+f,v</span>”快捷键打开编码转换窗口，换为<span lang=EN-US>UTF8</span></span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:54.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'><img border=0 width=403
+height=340 id="图片 8" src="caffe.files/image008.gif"
+alt="\alt sstream_i &#10;Unicode (UTE-8 &#10;Packages\boost.l &#10;l.hpp &#10;- 65001 &#10;16 &#10;Enamespace boost { "></span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:54.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'>&nbsp;</span></p>
+
+<h1 style='word-break:break-all'><a name="_Toc471773572"><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'>2 </span></a><span style='font-family:
+"微软雅黑",sans-serif'>原理与细节展开</span></h1>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>caffe</span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>有两个获取渠道：在<span lang=EN-US>github</span>的</span><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'><a
+href="https://github.com/Microsoft/caffe"><span style='font-size:10.5pt'>Microsoft</span></a></span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>（简称<span
+lang=EN-US>M</span>）和</span><span lang=EN-US style='font-family:"微软雅黑",sans-serif'><a
+href="https://github.com/BVLC/caffe/tree/windows"><span style='font-size:10.5pt'>BVLC</span></a></span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>（简称<span
+lang=EN-US>B</span>）。下载下来的压缩文件名称分别为“<span lang=EN-US>caffe-window.zip</span>”<span
+lang=EN-US>(8M)</span>，“<span lang=EN-US>caffe-master.zip</span>”<span
+lang=EN-US>(8M)</span>。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>M</span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>应该是个稳定版本，而<span lang=EN-US>B</span>是基于<span lang=EN-US>M</span>的实时更新版本。所以如果要保证团队成员使用的<span
+lang=EN-US>caffe</span>版本一致，最好用的是<span lang=EN-US>M</span>（<span lang=EN-US>commit</span>为<span
+lang=EN-US>f51294f</span>）。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>通过<span lang=EN-US>BC</span>软件比较，两者大差不差，<span lang=EN-US>B</span>的会多点东西。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>c.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>《<span lang=EN-US>caffe</span>》一书推荐的也是<span lang=EN-US>M</span>版。但从书中内容可知目前的<span
+lang=EN-US>M</span>版比他写书时又有了些更新，现在能直接支持<span lang=EN-US>cuDNN4</span>、<span
+lang=EN-US>5</span>，作者原推荐安装是：<span lang=EN-US>CUDA7.5 + cuDNN3</span>。</span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>我分享的<span lang=EN-US>&quot;caffe.rar&quot;</span>，是在<span
+lang=EN-US>M</span>版的基础上做了改动的，所以大了一些，以及事先做了配置改动。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>将<span lang=EN-US>CommonSettings.props.example</span>改为<span
+lang=EN-US>CommonSettings.props</span>，初始设置由<span lang=EN-US>cuDNN</span>改为仅用<span
+lang=EN-US>CPU</span>。<span lang=EN-US>CUDA</span>版本由<span lang=EN-US>7.5</span>改为<span
+lang=EN-US>8.0</span>，<span lang=EN-US>cuDNN</span>目录由空改为“<span lang=EN-US>$(SolutionDir)packages\cudnn-8.0-windows10-x64-v5.0-ga</span>”。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>CudaArchitecture</span><span style='font-size:10.5pt;font-family:
+"微软雅黑",sans-serif;color:black'>删除“<span lang=EN-US>compute_35,sm_35</span>”，去掉不必要的部分，加快编译速度。</span></p>
+
+<p class=MsoNormal style='margin-left:81.0pt;text-indent:-81.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>i.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>CudaArchitecture</span><span style='font-size:10.5pt;font-family:
+"微软雅黑",sans-serif;color:black'>是一个跟显卡有关的值，表示计算能力，如果这项设置不对，以后跑<span lang=EN-US>Matlab</span>接口会有问题</span></p>
+
+<p class=MsoNormal style='margin-left:81.0pt;text-indent:-81.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>ii.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>不同显卡对应的设置为：</span></p>
+
+<div>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:78.0pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=255 valign=top style='width:190.95pt;border:solid #A3A3A3 1.0pt;
+  background:#C5E0B3;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+  <p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif'>GPU</span></p>
+  </td>
+  <td width=161 valign=top style='width:120.5pt;border:solid #A3A3A3 1.0pt;
+  border-left:none;background:#C5E0B3;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+  <p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif'>C</span><span
+  lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif'>omputer
+  Capability</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=255 valign=top style='width:190.95pt;border:solid #A3A3A3 1.0pt;
+  border-top:none;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+  <p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif'>GTX660,680,760,770</span></p>
+  </td>
+  <td width=161 valign=top style='width:120.5pt;border-top:none;border-left:
+  none;border-bottom:solid #A3A3A3 1.0pt;border-right:solid #A3A3A3 1.0pt;
+  padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+  <p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif'>compute_30,sm_30</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=255 valign=top style='width:190.95pt;border:solid #A3A3A3 1.0pt;
+  border-top:none;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+  <p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif'>GTX780,
+  Titan Z, Titan Black, K20, K40</span></p>
+  </td>
+  <td width=161 valign=top style='width:120.5pt;border-top:none;border-left:
+  none;border-bottom:solid #A3A3A3 1.0pt;border-right:solid #A3A3A3 1.0pt;
+  padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+  <p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif'>compute_35,sm_35</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=255 valign=top style='width:190.95pt;border:solid #A3A3A3 1.0pt;
+  border-top:none;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+  <p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif'>GTX960,
+  970, <b>980</b>, Titan X</span></p>
+  </td>
+  <td width=161 valign=top style='width:120.5pt;border-top:none;border-left:
+  none;border-bottom:solid #A3A3A3 1.0pt;border-right:solid #A3A3A3 1.0pt;
+  padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+  <p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif'>compute_52,sm_52</span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>c.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>改了<span lang=EN-US>Caffe.sln</span>文件，使得启动项为<span lang=EN-US>&quot;caffe&quot;</span>项目而非<span
+lang=EN-US>&quot;libcaffe&quot;</span>。本来还想改默认是<span lang=EN-US>Release</span>，但单纯改<span
+lang=EN-US>sln</span>文件好像不行。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>d.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>caffe</span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>项目<span lang=EN-US>Release</span>版增加命令行：<span lang=EN-US>train
+--solver=examples/mnist/lenet_solver.prototxt</span>，多了<span lang=EN-US>caffe.vcxproj.user</span>文件。方便编译后即可直接运行<span
+lang=EN-US>MNIST</span>样例。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>e.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>为了能直接运行<span lang=EN-US>MNIST</span>，我下载了<span lang=EN-US>MNIST</span>现成的<span
+lang=EN-US>lmdb</span>文件（<span lang=EN-US>mnist_test_lmdb</span>、<span
+lang=EN-US>mnist_train_lmdb</span>）放到<span lang=EN-US>&quot;examples\mnist&quot;</span>。以及<span
+lang=EN-US>lenet_solver.prototxt</span>文件的<span lang=EN-US>&quot;solver_mode&quot;</span>改为“<span
+lang=EN-US> CPU</span>”。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>f.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>通过这些操作，大家要对这份<span lang=EN-US>props</span>有所了解，以后加<span
+lang=EN-US>Matlab</span>接口等都要改这配置文件。</span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>CUDA</span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>必须在<span lang=EN-US>VS</span>之后安装，因为<span lang=EN-US>CUDA</span>在安装时会搜寻本机所有的<span
+lang=EN-US>VS</span>版本，自动配置好<span lang=EN-US>CUDA</span>。如果顺序反了，<span
+lang=EN-US>VS</span>就用不了<span lang=EN-US>CUDA</span>了。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>一开始我认为是<span lang=EN-US>CUDA</span>自动改了<span lang=EN-US>VS</span>的全局配置文件，加了包含目录、库目录等。后来检查发现全局配置文件并没有变。所以应该是其他一些相关改动。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>cuda</span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>默认安装到的目录：<span lang=EN-US>C:\Program Files\NVIDIA GPU Computing
+Toolkit\CUDA\v8.0</span></span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>cuDNN</span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>的下载是要在官网注册账户的，回答一堆问卷调查<span lang=EN-US>~</span>所以我下载后放到百度云，免去大家注册的环节。</span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>性能评测</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>明捷<span lang=EN-US>10</span>月<span lang=EN-US>29</span>日晚发给我的一张性能评测表</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:54.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'><img border=0 width=498
+height=165 id="图片 9" src="caffe.files/image009.jpg"
+alt="i7-4770K/16G/GTX 770/CLDA 6.5 &#10;INTIST Windows8. 1 on CPU: 620s &#10;INTIST Windows8. 1 on CPU: 190s &#10;INTIST Ubuntu &#10;INTIST Ubuntu &#10;INTIST Ubuntu &#10;Cifar10 full &#10;Cifar10 full &#10;14. 04 on CPU: 270s &#10;14. 04 on CPU: 160s &#10;14. 04 on CPU with cuDNN: 30s &#10;GPU wihtout cuDNN: 73m45s = 4428 s (Iteration 70000) &#10;on &#10;(Iteration 70000) &#10;on GPC with cuDNN: 20m7s &#10;1207s "></span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>总结下我自己测的时间</span></p>
+
+<p class=MsoNormal style='margin-left:81.0pt;text-indent:-81.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>i.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>在台式机</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:81.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'><img border=0 width=492
+height=94 id="图片 10" src="caffe.files/image010.jpg"
+alt="$ H RAM): &#10;Intel(R) Xeon(R) CPU E5-1630v3 @ 3.70GHz 3.70 GHz &#10;16.0 &#10;64 , x64 "></span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:81.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'>CPU</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>用时</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>400</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>秒，</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>CUDE8.0</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>用时</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>190</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>秒，</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>cuDNN5</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>用时</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>33</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>秒。</span></p>
+
+<p class=MsoNormal style='margin-left:81.0pt;text-indent:-81.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>ii.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>在笔记本</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:81.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'><img border=0 width=499
+height=92 id="图片 11" src="caffe.files/image011.jpg"
+alt="Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz &#10;6.00 G8 &#10;64 , x64 &#10;2.20 GHz "></span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:81.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'>CPU</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>用时</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>760</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>秒。</span></p>
+
+<p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>分享链接的<span lang=EN-US>&quot;backup&quot;</span>中部分文件介绍：</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>WindowsCaffeProject.rar</span><span style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>（<span lang=EN-US>700M</span>）：《<span
+lang=EN-US>caffe</span>》一书作者编译好的<span lang=EN-US>caffe</span>。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>MNIST.rar</span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>（<span lang=EN-US>21M</span>）：带编译好<span lang=EN-US>lmdb</span>格式的<span
+lang=EN-US>MNIST</span>数据库。</span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>c.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>caffe-master.zip</span><span style='font-size:10.5pt;font-family:
+"微软雅黑",sans-serif;color:black'>（<span lang=EN-US>8M</span>）、<span lang=EN-US>caffe-windows.zip</span>（<span
+lang=EN-US>8M</span>）：见前文介绍。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>&nbsp;</span></p>
+
+<h1 style='word-break:break-all'><a name="_Toc471773573"><span lang=EN-US
+style='font-family:"微软雅黑",sans-serif'>Reference</span></a></h1>
+
+<p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-18.0pt;
+vertical-align:middle;word-break:break-all'><span lang=EN-US style='font-size:
+10.0pt;font-family:"微软雅黑 Light",sans-serif;color:black'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>sunny_1024_</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>，</span><span
+lang=EN-US style='font-family:"微软雅黑",sans-serif'><a
+href="http://bbs.csdn.net/topics/391909679"><span style='font-size:10.5pt'>error
+MSB4062</span><span lang=EN-US style='font-size:10.5pt'><span lang=EN-US>要装.Net
+3.5</span></span></a></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>，<span lang=EN-US>CSDN</span>，<span lang=EN-US>2016.8</span></span></p>
+
+<p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-18.0pt;
+vertical-align:middle;word-break:break-all'><span lang=EN-US style='font-size:
+10.0pt;font-family:"微软雅黑 Light",sans-serif;color:black'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>小鱼人<span
+lang=EN-US>fish</span>，</span><span lang=EN-US style='font-family:"微软雅黑",sans-serif'><a
+href="http://blog.csdn.net/yj3254/article/details/52290401?locationNum=8&amp;fps=1"><span
+style='font-size:10.5pt'>caffe</span><span lang=EN-US style='font-size:10.5pt'><span
+lang=EN-US>学习(1):</span></span><span lang=EN-US style='font-size:10.5pt'><span
+lang=EN-US>多平台下安装配置Caffe</span></span></a></span><span style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>，<span lang=EN-US>CSDN</span>，<span
+lang=EN-US>2016.8</span></span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.0pt;
+font-family:"Courier New";color:black'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>这篇讲完<span lang=EN-US>windows</span>后，继续讲了如何装<span lang=EN-US>Ubuntu</span>虚拟机，及在<span
+lang=EN-US>Ubuntu</span>跑<span lang=EN-US>CPU</span>版的<span lang=EN-US>caffe</span></span></p>
+
+<p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-18.0pt;
+vertical-align:middle;word-break:break-all'><span lang=EN-US style='font-size:
+10.0pt;font-family:"微软雅黑 Light",sans-serif;color:black'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>KUN_Guo</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>，</span><span
+lang=EN-US style='font-family:"微软雅黑",sans-serif'><a
+href="http://blog.csdn.net/guoyk1990/article/details/52909864?locationNum=3&amp;fps=1"><span
+lang=EN-US style='font-size:10.5pt'><span lang=EN-US>官方Caffe-windows </span></span><span
+lang=EN-US style='font-size:10.5pt'><span lang=EN-US>配置与示例运行</span></span></a></span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>，<span
+lang=EN-US>CSDN</span>，<span lang=EN-US>2016.10</span></span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.0pt;
+font-family:"Courier New";color:black'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>这篇文末列了一些值得我后续工作一看的参考文章</span></p>
+
+<p class=MsoListParagraph style='margin-left:36.0pt;text-indent:-18.0pt;
+vertical-align:middle;word-break:break-all'><span lang=EN-US style='font-size:
+10.0pt;font-family:"微软雅黑 Light",sans-serif;color:black'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>GU-student</span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>，</span><span
+lang=EN-US style='font-family:"微软雅黑",sans-serif'><a
+href="http://blog.csdn.net/u011314012/article/details/52694236?locationNum=1&amp;fps=1"><span
+lang=EN-US style='font-size:10.5pt'><span lang=EN-US>安装windows </span></span><span
+lang=EN-US style='font-size:10.5pt'><span lang=EN-US>版caffe </span></span><span
+lang=EN-US style='font-size:10.5pt'><span lang=EN-US>的一点经验</span></span></a></span><span
+style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;color:black'>，<span
+lang=EN-US>CSDN</span>，<span lang=EN-US>2016.9</span></span></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.0pt;
+font-family:"Courier New";color:black'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>文章在一些重要细节用红色标出，用幽默的语言</span><span style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:red'>警示</span><span style='font-size:10.5pt;
+font-family:"微软雅黑",sans-serif;color:black'>读者操作顺序等，这个写作习惯很好。</span></p>
+
+<div>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:51.0pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=441 valign=top style='width:330.55pt;border:solid #A3A3A3 1.0pt;
+  padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+  <p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+  lang=EN-US style='font-family:"微软雅黑",sans-serif'><img border=0 width=420
+  height=65 id="图片 15" src="caffe.files/image012.jpg"
+  alt="氵 王 ： &#10;的 安 装 一 定 在 &#10;CUDA &#10;氵 王 ： 如 果 电 脑 没 有 &#10;的 安 装 完 成 之 后 （ ） &#10;visualstudio &#10;， 省 去 此 步 。 "></span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:-18.0pt;vertical-align:
+middle;word-break:break-all'><span lang=EN-US style='font-size:10.0pt;
+font-family:"Courier New";color:black'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"微软雅黑",sans-serif;
+color:black'>给的安装流程图非常好，就是画的有点长了。。。可以注意下版面，做的更好（我截图拆成两半了）</span></p>
+
+<div>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:51.0pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=160 valign=top style='width:120.0pt;border:solid #A3A3A3 1.0pt;
+  padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+  <p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+  lang=EN-US style='font-family:"微软雅黑",sans-serif'><img border=0 width=144
+  height=356 id="图片 16" src="caffe.files/image013.jpg" alt="Tin7 &#10;vs2013 "></span></p>
+  <p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif'>&nbsp;</span></p>
+  </td>
+  <td width=175 valign=top style='width:131.05pt;border:solid #A3A3A3 1.0pt;
+  border-left:none;padding:4.0pt 4.0pt 4.0pt 4.0pt'>
+  <p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+  lang=EN-US style='font-family:"微软雅黑",sans-serif'><img border=0 width=154
+  height=492 id="图片 17" src="caffe.files/image014.jpg"
+  alt=",eMjGPU? &#10;CUDA7. 5 &#10;MATLAB2014b &#10;/Mat lab2015b &#10;* !ftaffe &#10;fWhkcuDNN "></span></p>
+  <p style='margin:0cm;margin-bottom:.0001pt;word-break:break-all'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"微软雅黑",sans-serif'>&nbsp;</span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:54.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'>&nbsp;</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:54.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'>&nbsp;</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:54.0pt;
+margin-bottom:.0001pt;word-break:break-all'><span lang=EN-US style='font-size:
+10.5pt;font-family:"微软雅黑",sans-serif;color:black'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

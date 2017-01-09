@@ -1,13 +1,13 @@
-Sub Ìøµ½ÉÏÒ»¸ö²»Í¬Öµ()
+Sub è·³åˆ°ä¸Šä¸€ä¸ªä¸åŒå€¼()
     Dim myCell As Object
     Dim maxn As Long
     
-    maxn = ActiveSheet.UsedRange.Rows.Count 'ÕâÀï¿ÉÒÔÉèÖÃ×î´óÌøÔ¾·ù¶È
+    maxn = ActiveSheet.UsedRange.Rows.Count 'è¿™é‡Œå¯ä»¥è®¾ç½®æœ€å¤§è·³è·ƒå¹…åº¦
     
     Set myCell = ActiveCell
     
-    On Error GoTo finish    'µ¥Ôª¸ñÀàĞÍ²»Í¬Ê±»áÓĞÒâÍâÇé¿ö
-    'Ìø¹ıÒş²ØĞĞ»òÕßÖµÏàÍ¬µÄĞĞ
+    On Error GoTo finish    'å•å…ƒæ ¼ç±»å‹ä¸åŒæ—¶ä¼šæœ‰æ„å¤–æƒ…å†µ
+    'è·³è¿‡éšè—è¡Œæˆ–è€…å€¼ç›¸åŒçš„è¡Œ
     Do While Rows(myCell.Row).Hidden Or myCell = ActiveCell
         Set myCell = myCell.Offset(-1, 0)
     Loop
@@ -15,16 +15,16 @@ finish:
     myCell.Activate
 End Sub
 
-Sub Ìøµ½ÏÂÒ»¸ö²»Í¬Öµ()
+Sub è·³åˆ°ä¸‹ä¸€ä¸ªä¸åŒå€¼()
     Dim myCell As Object
     Dim maxn As Long
     
-    maxn = ActiveSheet.UsedRange.Rows.Count 'ÕâÀï¿ÉÒÔÉèÖÃ×î´óÌøÔ¾·ù¶È
+    maxn = ActiveSheet.UsedRange.Rows.Count 'è¿™é‡Œå¯ä»¥è®¾ç½®æœ€å¤§è·³è·ƒå¹…åº¦
     
     Set myCell = ActiveCell
     
-    On Error GoTo finish    'µ¥Ôª¸ñÀàĞÍ²»Í¬Ê±»áÓĞÒâÍâÇé¿ö
-    'Ìø¹ıÒş²ØĞĞ»òÕßÖµÏàÍ¬µÄĞĞ
+    On Error GoTo finish    'å•å…ƒæ ¼ç±»å‹ä¸åŒæ—¶ä¼šæœ‰æ„å¤–æƒ…å†µ
+    'è·³è¿‡éšè—è¡Œæˆ–è€…å€¼ç›¸åŒçš„è¡Œ
     Do While (Rows(myCell.Row).Hidden Or myCell = ActiveCell) And myCell.Row < maxn
         Set myCell = myCell.Offset(1, 0)
     Loop

@@ -1,0 +1,10 @@
+div.WordSection1 {
+	/*最大宽度850像素*/
+	width: 100%; 
+	max-width: 850px; 
+	width: expression_r (document.body.clientWidth > max-width ? max-width : "auto"); 
+	
+	/*左右自动留白（居中）*/
+	MARGIN-RIGHT: auto;
+	MARGIN-LEFT: auto;
+}
