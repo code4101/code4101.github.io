@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* CSS Document */
+#del {
+    background: rgb(255,0,0)
+}
+
+#add {
+    background: rgb(0,255,0)
+}
