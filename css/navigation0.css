@@ -1,8 +1,8 @@
-body { counter-reset: h1_counter;}
-h1 { counter-reset: h2_counter; font-size: 12px; text-indent: -1em; padding-left: 1em;}
-h2 { counter-reset: h3_counter; font-size: 12px; text-indent: -1em; padding-left: 3em;}
-h3 { counter-reset: h4_counter; font-size: 12px; text-indent: -1em; padding-left: 5em;}
-h4 { counter-reset: h5_counter; font-size: 12px; text-indent: -1em; padding-left: 7em;}
+body { counter-reset: h1_counter h2_counter h3_counter h4_counter h5_counter h6_counter;}
+h1 { counter-reset: h2_counter h3_counter h4_counter h5_counter h6_counter; font-size: 12px; text-indent: -1em; padding-left: 1em;}
+h2 { counter-reset: h3_counter h4_counter h5_counter h6_counter; font-size: 12px; text-indent: -1em; padding-left: 3em;}
+h3 { counter-reset: h4_counter h5_counter h6_counter; font-size: 12px; text-indent: -1em; padding-left: 5em;}
+h4 { counter-reset: h5_counter h6_counter; font-size: 12px; text-indent: -1em; padding-left: 7em;}
 h5 { counter-reset: h6_counter; font-size: 12px; text-indent: -1em; padding-left: 9em;}
 h6 { font-size: 12px; text-indent: -1em; padding-left: 11em;}
 
