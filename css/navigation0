@@ -1,0 +1,39 @@
+body { counter-reset: h1_counter;}
+h1 { counter-reset: h2_counter; font-size: 12px; text-indent: -1em; padding-left: 1em;}
+h2 { counter-reset: h3_counter; font-size: 12px; text-indent: -1em; padding-left: 3em;}
+h3 { counter-reset: h4_counter; font-size: 12px; text-indent: -1em; padding-left: 5em;}
+h4 { counter-reset: h5_counter; font-size: 12px; text-indent: -1em; padding-left: 7em;}
+h5 { counter-reset: h6_counter; font-size: 12px; text-indent: -1em; padding-left: 9em;}
+h6 { font-size: 12px; text-indent: -1em; padding-left: 11em;}
+
+h1:before {
+    counter-increment: h1_counter;
+    content: counter(h1_counter) " ";
+}
+
+h2:before {
+    counter-increment: h2_counter;
+    content: counter(h1_counter) "." counter(h2_counter) " ";
+}
+
+h3:before {
+    counter-increment: h3_counter;
+    content: counter(h1_counter) "." counter(h2_counter) "." counter(h3_counter) " ";
+}
+
+h4:before {
+    counter-increment: h4_counter;
+    content: counter(h1_counter) "." counter(h2_counter) "." counter(h3_counter) 
+            "." counter(h4_counter) " ";
+}
+
+h5:before {
+    counter-increment: h4_counter;
+    content: counter(h1_counter) "." counter(h2_counter) "." counter(h3_counter) 
+            "." counter(h4_counter) "." counter(h5_counter);
+}
+
+h6:before {
+    content: counter(h1_counter) "." counter(h2_counter) "." counter(h3_counter)
+            "." counter(h4_counter) "." counter(h5_counter) "." counter(h6_counter);
+}
